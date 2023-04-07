@@ -1,0 +1,140 @@
+
+.login-form{
+
+    width: 50vw;
+    display: grid;
+    background: white;
+    padding: 40px 10px 50px 10px !important;
+    font-size: 1vw;
+    border-radius:0 10px 10px 0 ;
+  
+  }
+
+  .container{
+    max-width: 500px !important;
+  }
+  input{
+    margin-bottom: 30px;
+  }
+  
+  .login-box{
+    display: grid;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+  }
+  .container{
+    width: 70% !important;
+  }
+  
+  .background{
+    background: linear-gradient(to right, #f0f3f5, #013142);
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  button.mt-3.mb-3.px-auto.text-center {
+    font-weight: 500;
+    text-align: center;
+    padding: 0 110px !important;
+    font-size: 18px !important;
+  }
+  p{
+    color: #969696;
+  }
+  .btn{
+    background-color: #013142 !important;
+    font-weight: 400 !important;
+    
+    height: auto;
+    width: 100%;
+    font-size: medium;
+  
+  }
+  .mobile-img{
+    display: grid;
+  
+  }
+  .left-background{
+    background-color: #013142;
+    color: white;
+    padding: 40px!important;
+    padding-bottom: 0 !important;
+    border-radius: 10px 0 0 10px;
+  }
+  
+  .logo{
+    width: 100px;
+    height: 100px;
+    background-image: url("logo-light.png") ;
+    background-position: center;
+    background-size: 100px;
+    background-repeat: no-repeat;
+  }
+  .input-error{
+    border-color: #a3c4bc !important;
+    box-shadow: 0 0 0 0.1rem #e23e3e !important;
+  }
+  .input-error:focus{
+    border-color: #a3c4bc !important;
+    box-shadow: 0 0 0 0.2rem #e23e3e !important;
+  }
+
+
+
+  .error-message{
+    display: block;
+    text-align: end;
+    color: #e23e3e;
+    font-size: 1.5em;
+    
+  }
+
+  .hidden
+  {
+    display: none !important;
+  }
+
+  .forgotPswd{
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .forgotPswd span{
+    font-size: 1.2em;
+  }
+
+  .forgotPswd :hover{
+    color: #00b4f5 ;
+    cursor: pointer;
+  }
+
+  @media only screen and (max-width:575px) {
+  form{
+    width: 66vw;
+  }
+  .login-form{
+    padding: 25px !important;
+    font-size: .8rem;
+    border-radius: 0 0 10px 10px ;
+    
+  }
+  .left-background{
+    padding: 20px !important;
+    padding-bottom: 0 !important;
+    border-radius: 10px 10px 0 0;
+  }
+  .container{
+    width: 80% !important;
+  }
+
+  .btn{
+    font-size: 14px !important;
+    
+  }
+  
+  }

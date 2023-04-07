@@ -1,0 +1,263 @@
+.car-container input[type=file]{ 
+    color:transparent;
+    width: 130px;
+    outline: none;
+    background-color: #013142;
+}
+
+.car-container{
+    overflow: scroll;
+    overflow-x: auto;
+    height: 100vh;
+  
+    padding-bottom: 55px;
+}
+
+
+
+.collab-car-info{
+    width: 99%;
+    min-width: 500px;
+    margin-top: 20px;
+    margin-left: 20px;
+    border-radius: 5px;
+    background-color: #eef1f5;
+    padding: 5px;
+    padding-left: 10px;
+    box-shadow:3px 3px 10px grey;
+}
+
+.collab-car-info h3{
+    margin-left: 0;
+    font-size: 1em;
+}
+.collab-car-info h4{
+    font-size: 0.9em ;
+}
+.collab-car-info p{
+    font-size: 0.7em;
+}
+
+.icon-info{
+    color: #013142;
+}
+
+.collab-car-info p{
+   display: flex;
+   flex-direction: row;
+   align-items: center; 
+   gap: 10px;
+   font-weight: bold;
+}
+
+
+/*PROGRESS BAR */
+.progress-register{
+    width: 50%;
+    min-width: 500px;
+    height: 50px;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    position: relative;
+ 
+}
+
+.level{
+    background-color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 2px;
+    color:#013142;
+    box-shadow:3px 3px 10px grey;
+}
+
+.progress-level{
+    height: 10px;
+    width: 90%;
+    position: absolute;
+    left: 0;  
+    right: 0;
+    margin: auto;
+    z-index: -1;
+    box-shadow:3px 3px 10px grey;
+    border-radius: 20px;
+    transition: all 500ms linear ;
+}
+
+.current-level{
+    background-color: #013142 !important;
+    color: #eef1f5 !important;
+}
+
+.step1{
+    background: linear-gradient(90deg, #013142  0%, rgba(255,255,255,1)50%, rgba(255,255,255,1) 100%);
+}
+.step2{
+    background: linear-gradient(90deg, #013142  0%, #013142 40%, rgba(255,255,255,1) 100%);
+}
+.step3{
+    background: linear-gradient(90deg, #013142  0%, #013142 50%,  #013142 100%);
+}
+
+
+
+.first-half{
+    width: 120px;
+    height: 100%;
+    background-color: black;
+}
+
+
+
+/* CAROUSEL */
+.car-carousel{
+   background-color: #eef1f5;
+    width: 50%;
+    min-width: 500px;
+    height: 350px;
+    padding: 20px;
+    margin: auto;
+    margin-top: 30px;
+    box-shadow:3px 3px 10px grey;
+}
+
+/**BUTTON FIELD*/
+.button-field{
+    width: 50%;
+    height: 50px;
+    border-radius: 30px;
+    margin: auto;
+    margin-top: 50px;
+    box-shadow:3px 3px 10px grey;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.button-field button{
+    border: none;
+    background-color: transparent;
+    font-weight: bold;
+    color: #013142;
+}
+
+@media only screen and (max-width:574px) {
+.car-carousel{
+    height: 500px;
+}
+}
+
+
+/*MODAL*/
+
+.page-summary{
+    margin: auto;
+    width: 500px;
+    
+    
+}
+
+/**SUMMARY*/
+.summary-content{
+    width: 100%;
+    height: 90vh;
+    overflow-y: scroll;
+    padding: 20px;
+   
+   
+}
+
+.collab-desc{
+    background-color: #eef1f5;
+    box-shadow:3px 3px 10px grey;
+    padding: 20px;
+    
+}
+.collab-bus{
+    padding: 20px;
+    background-color: white;
+    box-shadow:3px 3px 10px grey;
+   
+  
+}
+.cg div div{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+.collab-bus div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
+
+.collab-bus div span{
+  
+    margin-top: -20px;
+}
+
+.img-cg{
+    width: 200px;
+    height: 100px;
+    background-color: white;
+}
+
+.cg{
+    border-bottom: 1px solid grey;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.button-summary{
+    display: flex;
+    flex-direction: row;
+    margin-top: -30px;
+    justify-content: center;
+    gap: 10px;
+    background-color: #eef1f5;
+  
+    height: 100px;
+}
+
+.button-summary button {
+    border: none;
+    margin-top: 50px;
+    color: #013142;
+}
+
+.button-summary button:nth-child(2){
+    color: green;
+}
+
+
+.Label{
+    color: #013142;
+}
+/**LOADING MODAL*/
+.page-loading{
+   
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader{
+    font-size: 1000px;
+    width: 500px;
+}

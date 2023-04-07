@@ -1,0 +1,64 @@
+
+.profilmenu_content{
+    background-color: aqua;
+    
+}
+
+.profilmenu_content> .row div{
+    background-color: white;
+}
+
+.profil_img_show
+{
+    display: block;
+    width: 100%;
+    min-width: 200px;
+    border: 3px solid #013142;
+    border-radius: 5px;
+}
+
+.profil_menu_left p:nth-child(2)
+{
+    font-weight: bold;
+    font-size: 12px;
+    margin-top: 10px;
+    color: #013142;
+}
+
+.profil_menu_left p:nth-child(3)
+{
+    font-weight: bold;
+    font-size: 12px;
+  
+    
+}
+
+.profil_menu_right{
+    align-content: center;
+    min-width: 200px;
+    max-width: 100%;
+    overflow: hidden !important;
+}
+
+.profil_menu_right div{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: baseline;
+    padding-top: 10px;
+    gap: 2px;
+    font-size: 12px;
+    font-weight: bold;
+
+    background:linear-gradient(to right,#013142 ,#0284b3 );
+    border-bottom:1px solid white !important;
+}
+.profil_menu_right div p{
+    color: white;
+}
+.icon_menu_right{
+    display: block;
+    width: 20px;
+    color: white !important;
+    
+}

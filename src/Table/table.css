@@ -1,0 +1,13 @@
+.column-label{
+    font-size: 0.9em;
+}
+
+.column-value{
+    display: inline;
+    font-size: 0.8em !important;
+   
+}
+
+.icon-option{
+    font-size: 0.9em !important;
+}

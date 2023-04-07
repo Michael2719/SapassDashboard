@@ -1,0 +1,126 @@
+
+/** DRAG AND DROP*/
+  .page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: none !important;
+    opacity: 1 !important;
+  }
+  
+  #form-file-upload {
+    height: 16rem;
+    width: 28rem;
+    max-width: 100%;
+    text-align: center;
+    position: relative;
+  }
+  
+  #input-file-upload {
+    display: none;
+  }
+  
+  #label-file-upload {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 2px;
+    border-radius: 1rem;
+    box-shadow:  5px 5px 30px #778083;
+  }
+  
+  #label-file-upload.drag-active {
+    background-color: #ffffff;
+  }
+  
+  .upload-button {
+    cursor: pointer;
+    padding: 0.25rem;
+    font-size: 1rem;
+    border: none;
+    font-family: 'Oswald', sans-serif;
+    background-color: transparent;
+  }
+  
+  .upload-button:hover {
+    text-decoration-line: underline;
+  }
+  
+  #drag-file-element {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+  }
+
+  /**MODAL*/
+
+  .modal_drag_and_drop{
+    position: absolute;
+    height: auto;
+
+  }
+
+  /*DATE PICKER*/
+  .date_picker{
+    border-radius: 5px;
+    border: 1px solid rgb(160, 160, 160);
+    padding-left: 16px;
+    color: #778083;
+  }
+
+  .date_picker:focus{
+   box-shadow: 0 0 2px blue !important;
+  }
+
+
+  /*IMAGE_PICKER*/
+  .image_picker{
+    position: relative;
+  }
+  
+  .image_picker img{
+    
+    width: 100%;
+    min-width: 200px;
+    border-radius: 0 0 5px 5px;
+  }
+
+  .page_edit .row div
+  {
+    background-color: white;
+  }
+
+  .image_picker button{
+    position: absolute;
+    right: 2px;
+    bottom: 2px;
+    width: 50%;
+    height: 20px;
+    font-size: 9px;
+    text-align: center;
+    padding: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+  }
+
+  .image_picker button p {
+    position: relative;
+    margin: auto;
+    bottom: 2px;
+    left: 0;
+    color: white;
+    text-align: justify;
+  }
+
+  .icon_camera{
+    color: white;
+  }

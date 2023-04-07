@@ -1,0 +1,178 @@
+.body_profil{
+
+    height: 100%;
+    overflow-y: scroll;
+   
+}
+
+.row{
+    height: 100%;
+    background: linear-gradient(to right, #fffefe, #f1f1f1);
+}
+
+
+
+/**Porfil*/
+.profil_container
+{
+    display: flex ;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    
+
+}
+.profil{
+    height: 30%;
+    width: 60%;
+    min-width: 220px;
+    min-height: 220px;
+    background-color: white;
+    box-shadow: 0 20px 40px rgb(173, 173, 173);
+    border: none !important;
+    border-radius: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    position: relative; 
+}
+
+.name{
+    font-weight: bold;
+    height:10px;
+    font-size: 1.2em;
+    margin-top: 20px;
+    
+}
+
+.aftername{
+  
+    height:10px;
+    font-size: 10px;
+    font-size: 1.1em;
+}
+
+.info img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px #e6dddd solid;
+    margin: 5px;
+    margin-top: 20px;
+}
+
+
+/**Options*/
+option{
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.item{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #e6dddd !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    padding-left: 5px;
+    cursor: pointer;
+    background-color: #013142;
+}
+
+.item p{
+    font-size: 12px;
+    position: absolute;
+    transform: translateX(25px);
+    top: 30%;
+    color: white;
+}
+
+.item_active::before{
+    content: "";
+    width: 5px;
+    z-index: 1;
+}
+
+.item_active .option_icon{
+    color: blueviolet;
+}
+
+.item_active .option_carretRight
+{
+    color: blueviolet;
+}
+
+.option_icon{
+    color: white;
+}
+
+.item:hover::before {
+    content: "";
+    
+    width: 5px;
+    color: aqua !important;
+}
+
+.option_carretRight{
+    color: white;
+    position: absolute;
+    right: 2px;
+    font-size: 10px;
+}
+
+.profil_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+  
+}
+
+.profil_content > div{
+    
+    display: flex;
+    width: 100%;
+    max-height: 90vh;
+    background-color: white;
+    
+    border-radius: 3px;
+    box-shadow: 0 20px 40px rgb(173, 173, 173);
+    padding: 20px;
+    overflow-y: scroll;
+   
+   
+}
+.profil_content > div::-webkit-scrollbar{
+    width: 0 !important
+}
+
+
+   
+
+@media only screen and (max-width:767px) {
+.profil_container
+{
+    display: flex ;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    height: 35%;
+}
+
+.profil{
+    width: 40%;
+    height: 60%;
+     min-width: 200px;
+    min-height: 200px;
+}
+
+/*Profil content*/
+.profil_content > div{
+    max-height: 58vh;
+}
+}

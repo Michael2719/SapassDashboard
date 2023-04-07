@@ -1,0 +1,175 @@
+.sidebar
+{
+    position: relative;
+    width: 140px;
+    height: 100vh;
+    background-color: #013142  ;
+    color: white;
+    transition: 0.4s ease-in;
+}
+.sidebar-closed {
+    width: 55px;
+  }
+
+
+.sidebar__button
+{   
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border: none;
+    background: none;
+}
+.sidebar_icon
+{
+    color: white;
+    background-color: #013142;
+}
+
+.brand img{
+    display: block;
+    width: 50px;
+}
+
+.brand{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 2px;
+}
+
+.brand span
+{
+    font-size: 1.3em;
+}
+
+.brand::after
+{
+    content: '';
+    width: 85%;
+    height: 1px;
+    background-color: white;
+    position: absolute;
+    top: 40px;
+    left: -2px;
+}
+
+.items{
+     list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+ 
+}
+.sidebar__listItem{
+    position: relative;
+    width: 130px;
+    margin: 5px;
+    margin-left: -45px;
+    margin-top: 10px;
+    cursor: pointer;
+    color: white;
+    transition: 1ms !important;
+}
+
+.sidebar__listItem:hover::before
+{
+   content : "";
+   position: absolute;
+   height: 20px;
+   width: 2px;
+   background-color: blueviolet;
+    top: 3px;
+   left: 10px;
+}
+
+.sidebar__listItem:hover
+{
+  color:  blueviolet;
+  transition: 1ms ;
+}
+
+.sidebar__listItem__active{
+  color:  blueviolet;
+}
+
+
+.sidebar__icon
+{
+    font-size: 0.7em;
+    width: 50px;
+}
+
+.sidebar__listItem span
+{
+    font-size: 12px;
+}
+
+.sidebar__title{
+  font-size: 0.6em !important;
+}
+
+/* FADE ANIMATIONS */
+.fade-enter {
+    opacity: 0;
+  }
+  
+  .fade-enter-active {
+    opacity: 1;
+    transition: opacity 400ms;
+  }
+  
+  .fade-exit {
+    opacity: 1;
+  }
+  
+  .fade-exit-active {
+    opacity: 0;
+    transition: opacity 400ms;
+  }
+
+  /* UNDER MENU */
+  .under__menu{
+    list-style: none;
+    margin: 5px;
+    display: block;
+    transition:0.4s ease-in ;
+  }
+  
+  .under__menu li{
+    display: flex;
+    flex-direction: row;
+    font-size: 10px;
+    gap: 5px;
+    margin-bottom: 5px;
+
+  }
+  .under__menu li:hover{
+    color: white;
+  }
+
+
+
+  .under__menu__close{
+    display: none !important;
+   
+  }
+
+  .btn__drop
+{
+  position: absolute;
+  right: 0;
+  top: 5px;
+}
+
+@media only screen and (max-width:768px) {
+  .sidebar{
+    width: 55px !important;
+  }
+
+  .sidebar__title ,.sidebar__button, .btn__drop, .under__menu
+  {
+    display: none !important;
+  }
+}

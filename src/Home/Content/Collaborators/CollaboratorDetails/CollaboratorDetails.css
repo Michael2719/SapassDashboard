@@ -1,0 +1,335 @@
+.detail{
+   
+    background-color: #eef1f5;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    margin-bottom: 50px;
+    height: 100vh;
+    min-height: fit-content;
+    width: 100%;
+    overflow-y: scroll;
+} 
+
+.row-detail{
+    background-color: #013142;
+    width: 100%;
+
+}
+
+.left-page-title{
+    
+   position: absolute;
+   top: 7px;
+   left: 150px;
+   color: white;
+}
+
+.left-page{
+    background-color: #eef1f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.left-page-header button{
+    border: none;
+    background-color: transparent;
+    color:#013142 ;
+    transition: all 500ms;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-page-header button:hover{
+    transform: scale(1.2);
+}
+
+.left-page-header button:hover::after{
+    content: " ";
+    height: 2px;
+    width: 100%;
+    background-color: #013142;
+}
+
+.left-page-body{
+  width: 300px;
+  height: 300px;
+
+  z-index: 0;
+ 
+}
+
+.left-page-body p{
+  font-size: 0.7em;
+}
+
+
+/*SWIPER*/
+.swiper {
+    width: 100%;
+    height: 100%;
+    box-shadow:3px 3px 10px grey;
+   
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+  
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /*CollabProfil*/
+  .profil-collab{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    margin-top: 10px;
+
+  }
+  .profil-collab img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 3px solid #013142  ;
+    box-shadow:0px 0px 20px grey;
+  }
+
+  /*CollaboratorInformation*/
+  .page{
+
+    width: 100%;
+    height: 100%;
+    
+  }
+
+  .page h4{
+        position: absolute;
+        top:0;
+  }
+  .collab-info >div {
+    margin-top: 15px;
+  }
+
+  .collab-info div div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /*CIN*/
+
+  .cin-swiper{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .cin-swiper h4{
+  
+    position: relative;
+  }
+
+
+  /*Right page*/
+  .right-page{
+    
+     background-color:#eef1f5;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    height: 100%;
+    overflow-x: scroll;
+    z-index: 0;
+ 
+   
+  }
+
+
+  @media only screen  and (max-width:1344px)   
+  {
+    h4{
+      font-size: 1.3em !important;
+
+    }
+
+    .left-page{
+      align-items: flex-start;
+    }
+
+    .right-page{
+      align-items: flex-end;
+     
+    }
+   
+  }
+  @media only screen and (max-width:1199px){
+    .header-text-table{
+      font-size: 1.3em !important;
+
+    }
+
+    .left-page{
+      align-items: center;
+ 
+      height: 40%;
+    }
+  
+    .right-page{
+      align-items: center;
+
+      height: 60%;
+      justify-content: flex-start;
+      padding-top: 20px;
+      padding-bottom: 100px;
+    }
+    .detail{
+      padding-top: 50px;
+    height: 110vh;
+  }
+  }
+
+  @media only screen and (max-width:900px){
+    
+    .header-text-table{
+      font-size: 0.8em !important;
+     
+    }
+    .value-text-table{
+      font-size: 0.8em !important;
+    }
+  }
+
+
+  /*BUS DETAILS*/
+  .modal_bus-detail{
+
+    position: absolute;
+    width: 50%;
+    height: 95vh;
+    margin-top: 50px;
+    min-width: 500px;
+   
+    padding: 20px;
+    padding-bottom: 50px;
+    
+  }
+  .carte-grise,.licence{
+   
+    box-shadow:3px 3px 10px grey;
+  }
+  .carte-grise >div{
+    height: 200px !important;
+  }
+  .licence >div{
+    height: 200px !important;
+  }
+  .bus-detail{
+    margin: auto;  
+    height: 100%;
+    z-index: 2;
+    
+  }
+
+  .row-details{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+
+  .cg-detail span, .licence-detail span{
+    color: white;
+
+
+  }
+
+  .cg-detail, .licence-detail{
+    position: relative;
+  }
+
+  .cg-detail h4, .licence h4{
+    font-size: 1.1em !important;
+    color: white;
+    
+  }
+  .cg-detail h4::after{
+    content: " ";
+    position: absolute;
+    top: 25px;
+    left: 0;
+    height: 1px;
+    width: 500px;
+    background-color: white;
+  }
+
+  .licence-detail h4::after{
+    content: " ";
+    position: absolute;
+    top: 25px;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background-color: white;
+  }
+
+  .carte-grise >div , .licence>div{
+    background-color: white;
+
+  }
+
+  .carte-grise div:nth-child(1) , .licence div:nth-child(2){
+    background-color: #013142;
+  }
+
+  .image-gallery{
+    width: 70%;
+  }
+  .image-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  @media only screen and (max-width:767px){
+    .licence{
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    .image-gallery{
+      width: 50%;
+    
+    }
+
+  }
+
+  @media only screen and (max-height:900px) and (max-width:767px) {
+    .modal_bus-detail{
+      overflow-y: scroll;
+    }
+  }

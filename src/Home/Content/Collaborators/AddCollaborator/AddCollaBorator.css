@@ -1,0 +1,129 @@
+.collab_container{
+    height: 100vh;
+    overflow:scroll;
+    background-color: #f3f3f3;
+    
+}
+.collab_container > .row{
+    padding-bottom: 20px;
+}
+
+h3{
+    margin: 20px;
+}
+
+
+.collab_info{
+    margin-left: 20px;
+    margin-top: 20px;
+    width:100%;
+    max-width: 700px;
+    min-width: 400px;
+    background-color: #eef1f5;
+    padding: 20px;
+
+}
+.form{
+    background-color: #eef1f5;
+   
+}
+
+.drag_and_drop p{
+   font-size: 1rem;
+   color: white;
+   text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+   font-weight: bold;
+    
+}
+
+.drag_and_drop button{
+    border: none;
+    background-color: transparent;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.drag-file-element{
+   
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -2px;
+}
+
+
+.button{
+    min-width: 300px;
+    padding-top: 25px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+
+    
+}
+
+.button button{
+    width: 50%;
+    max-width: 300px;
+    min-width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    border-color: rgb(201, 201, 201);
+}
+
+.btn_validate{
+    background-color: green;
+    color: white;
+    
+}
+
+/*CIN IMAGE*/
+
+.cin_img_container{
+    background-color: #eef1f5;
+    min-width: 290px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.drag_and_drop{
+    position: absolute;
+    margin: auto;
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cin_img img{
+    background-color: white;
+    width: 290px;
+    height: 182px;
+}
+
+.test{
+   
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+    
+}
+
+.progressbar-cin{
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    margin: auto;
+}
