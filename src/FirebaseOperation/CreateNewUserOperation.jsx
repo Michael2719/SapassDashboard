@@ -18,38 +18,37 @@ const secondaryApp = initializeApp(firebaseConfig, "Secondary");
 const auth1= getAuth(secondaryApp)
 
 const checkEmailIsVerified =(callBack)=>{
-  let compteur =0
-  const onIdTokenChangedUnsubscribe=auth1.onIdTokenChanged((user)=>{
-    console.log(compteur)
-    if(user){
-      if(compteur>=100 && !user.emailVerified ){
-      
-        deleteUser(auth1.currentUser).then(()=>{
-          callBack(false)
+    let compteur =0
+    const onIdTokenChangedUnsubscribe=auth1.onIdTokenChanged((user)=>{
+      console.log(compteur)
+      if(user){
+        if(compteur>=100 && !user.emailVerified ){
+        
+          deleteUser(auth1.currentUser).then(()=>{
+            callBack(false)
+            signOut(auth1)
+            return onIdTokenChangedUnsubscribe()
+          })
+          
+        }  
+      }
+      if (user && user.emailVerified) {
+    
+        //unsubscribe
+          console.log(user.uid)
+          callBack(true, user.uid)      
           signOut(auth1)
           return onIdTokenChangedUnsubscribe()
-        })
-        
-      }  
-    }
-    
-
-    if (user && user.emailVerified) {
-   
-       //unsubscribe
-        callBack(true)      
-        signOut(auth1)
-        return onIdTokenChangedUnsubscribe()
-    }else{
-      if(auth1.currentUser!==null){
-        setTimeout(()=>{
-          compteur +=10;
-          auth1.currentUser.reload();
-          auth1.currentUser.getIdToken(true)
-        },10000)
-      }   
-    }
-  })
+      }else{
+        if(auth1.currentUser!==null){
+          setTimeout(()=>{
+            compteur +=10;
+            auth1.currentUser.reload();
+            auth1.currentUser.getIdToken(true)
+          },10000)
+        }   
+      }
+    })
 }
 
 export const addNewUserAuth =(email, password, callBack)=>{

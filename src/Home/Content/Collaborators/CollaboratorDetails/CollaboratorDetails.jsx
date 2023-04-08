@@ -119,7 +119,7 @@ const CollaboratorDetails = () => {
     }
 
     const editBusDetails =() =>{
-        navigate('/sapass/collaborator/car/update/2atipVFm3RJjg7cb6Gwi/0781TP')
+        navigate('/sapass/client/car/update/2atipVFm3RJjg7cb6Gwi/0781TP')
     }
 
     useEffect(()=>{

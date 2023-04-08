@@ -8,6 +8,12 @@ import  DatePicker  from  "react-datepicker" ;
 import { addNewUserAuth } from '../../../FirebaseOperation/CreateNewUserOperation';
 import { firebaseResponseError } from '../../../FirebaseOperation/FirebaseErrorList';
 import BasicAlert from '../../../Alerts/BasicAlert';
+import CustomModal from '../../../Modal/CustomModal';
+import ReactLoading from 'react-loading';
+import {setDataUser} from'../../../FirebaseOperation/UserOperation'
+
+
+
 const containsNumbers=(str)=>{
     return /[0-9]/.test(str)
 }
@@ -24,6 +30,10 @@ const emailFormat =(email)=>{
     return (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
 }
 
+const createObjectUser =(adress, name, afterName, dateOfBirth, email, phoneNumber, photoUrl, role, sexe, uid)=>
+{
+    return {adress ,name, afterName, dateOfBirth, email, phoneNumber, photoUrl, role, sexe, uid}
+}
 
 const AddUsers = () => {
     const [onLoad, setOnLoad] = useState(false)
@@ -35,6 +45,9 @@ const AddUsers = () => {
     
     const [basicAlertState, setBasicAlertState] = useState(false)
     const [basicAlertInfo, setBasicAlertInfo]= useState({title:"", text:"", icon:"", confirmButtonText:""})
+
+    const[showLoadingModal, setShowLoadingModal]= useState(false)
+    const[loadingText, setLoadingText] = useState("Chargement")
 
     const handleAlertState = (bool) =>{
         setBasicAlertState(bool)
@@ -211,19 +224,38 @@ const AddUsers = () => {
             addNewUserInformation()            
         }
     }
-    const emailVerficationCallBack =(bool)=>{
+    const emailVerficationCallBack =(bool, uid=null)=>{
         if(bool){
             //Send user informations to firestore
+            setLoadingText("Téléchargement des données...")
+            const user = createObjectUser (infoUser.adress, infoUser.nom, infoUser.prenoms, infoUser.ddn, loginUser.email, infoUser.tel, "", infoUser.role, infoUser.genre, uid)
+            setDataUser(user).then(()=>{
+                setBasicAlertInfo({title:"", text:"Opération éffectuée!", icon:"success", confirmButtonText:"Fermer"})
+                setShowLoadingModal(false)
+                
+                setBasicAlertState(true)   
+            }).catch(()=>{
+                setBasicAlertInfo({title:"Oupss", text:"Une erreur s'est produite, veuillez réessayé!", icon:"error", confirmButtonText:"Fermer"})
+                setBasicAlertState(true)  
+            })
         }else{
             if(basicAlertState){
+                
                 setBasicAlertState(false)
             }
+            setShowLoadingModal(false)
             setBasicAlertInfo({title:"Temps d'ettente dépassé!", text:"Adresse email non-vérifié", icon:"error", confirmButtonText:"Fermer"})
              setBasicAlertState(true)   
         }
     }
 
+
+
+    
+
     const addNewUserInformation =()=>{
+        setLoadingText("Chargement...")
+        setShowLoadingModal(true)
         addNewUserAuth(loginUser.email, loginUser.psswd , emailVerficationCallBack).then((res)=>{
             console.log(res)
             if(basicAlertState){
@@ -231,19 +263,32 @@ const AddUsers = () => {
             }
             setBasicAlertInfo({title:"", text:`Email de vérification envoyée à l'adresse ${loginUser.email}`, icon:"info", confirmButtonText:"Fermer"})
             setBasicAlertState(true)
+            setLoadingText("En attente de la validation de l'adresse email...")
         }).catch((err)=>{
             if(basicAlertState){
+              
                 setBasicAlertState(false)
             }   
-       
-            console.log(firebaseResponseError[err.code])
+            setShowLoadingModal(false)
+        
             setBasicAlertInfo({title:"", text:firebaseResponseError[err.code], icon:"error", confirmButtonText:"Fermer"})
              setBasicAlertState(true)
         })       
     }
 
+    /**SHOW LOADING MODAL */
+    
+
     return (
         <div className='add-user-container'>
+          <CustomModal setModal ={showLoadingModal}>
+                    <div className="page-loading">
+                      
+                    <ReactLoading type={"bars"} color="#013142" />
+                    <h4>{loadingText}</h4>
+                  </div>
+          </CustomModal>
+         
             <BasicAlert title={basicAlertInfo.title} text={basicAlertInfo.text} icon ={basicAlertInfo.icon} confirmButtonText={basicAlertInfo.confirmButtonText} alertState={basicAlertState} setAlertState={handleAlertState} />
             <div className="add-user-toolbar  d-flex flex-column flex-md-row justify-content-md-between">
                 <h3>Ajout de nouvel utilisateur</h3>

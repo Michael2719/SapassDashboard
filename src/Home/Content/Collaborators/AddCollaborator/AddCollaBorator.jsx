@@ -31,7 +31,7 @@ const AddCollaBorator = () => {
 //Handle Title 
 useEffect(()=>{
     if(id){
-        setTitle("Mise à jour du collaborateur")
+        setTitle("Mise à jour du compte client")
         getDataCollabByField(null, "id",id ).then((res)=>{
             console.log(res[0])
             const collab = res[0]
@@ -40,7 +40,7 @@ useEffect(()=>{
             setImageUrl({recto:collab.urlRecto, verso:collab.urlVerso})
         })
     }else{
-        setTitle("Ajout de nouveau collaborateur")
+        setTitle("Inscrire un nouveau client")
     }
 },[])   
 

@@ -17,20 +17,16 @@ export const getCurrentUser=()=>{
     })
 }
 
-export const setData = async(user)=>{
-    try{
-         
-        const docRef = await setDoc(doc(db, "Collaborateurs", user.uid), 
-         {nom:"Taxi" , uid: user.uid}).then(()=>{
-             console.log ("okokokoko") 
-         }).catch((err=> console.log(err)))
-        
-     }
-      
-     catch (e) {
-         console.log ("error") 
-       }
- }
+export const setDataUser = (user)=>{
+  return new Promise(async(resolve, reject)=>{
+    setDoc(doc(db, "Collaborateurs", user.uid), {...user}, {merge:true}).then((res)=>{
+           
+      resolve(res)
+    }).catch((err)=>{
+      reject(err)
+    });
+      })
+}
 
 export const getData = (user, Callback=null)=>{
      return new Promise((resolve, reject)=>{

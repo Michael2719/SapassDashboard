@@ -46,13 +46,13 @@ const CollaboratorList = () => {
        
         switch (action){
             case 1 :
-                navigate(`/sapass/collaborator/detail/${id}`)
+                navigate(`/sapass/client/detail/${id}`)
                 break
             case 2 :
-                navigate(`/sapass/collaborator/update/${id}`)
+                navigate(`/sapass/client/update/${id}`)
                 break
             case 3 :
-                navigate(`/sapass/collaborator/car/${id}`)
+                navigate(`/sapass/client/car/${id}`)
                 break
                     
         }
@@ -63,8 +63,8 @@ const CollaboratorList = () => {
         <div className='collab-container'>
             <div className='toolBar-collab'>
               <div className="toolbar-collab-left">
-                <h4>Collaborateurs</h4> 
-                <button className='btn-add-collab' onClick={()=>(navigate('/sapass/add_collaborator'))}>Ajouter</button>
+                <h4>Clients</h4> 
+                <button className='btn-add-collab' onClick={()=>(navigate('/sapass/clients/add_client'))}>Ajouter</button>
               </div>
               <div className="toolbar-collab-rigth"> 
                 <div  className="search-select">

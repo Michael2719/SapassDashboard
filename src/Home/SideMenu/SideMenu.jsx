@@ -21,9 +21,9 @@ import logo from '../../Login/logo-light.png'
 
 const menuItems = [
     { title: "Profil", icon: faUser , iconDown : faCaretDown , iconUp : faCaretUp ,menu:"profil" , link : "/sapass/profil/user", underMenu:[{title : "Modifer", icon :faUserCog , link : "profil/editProfil"}], state :"isDeployedProfil" , setState :"setIsDeployedProfil"},
-    { title: "Collaborateurs", icon: faUsers ,iconDown:faCaretDown, iconUp: faCaretUp ,menu:"collaborator" , link : "/sapass/collaborator", underMenu:[{title: "Ajouter", icon:faUserPlus , link : "/sapass/add_collaborator"}], state :"isDeployedCollab" , setState :"setIsDeployedCollab"},
+    { title: "Clients", icon: faUsers ,iconDown:faCaretDown, iconUp: faCaretUp ,menu:"clients" , link : "/sapass/clients", underMenu:[{title: "Ajouter", icon:faUserPlus , link : "/sapass/clients/add_client"}], state :"isDeployedCollab" , setState :"setIsDeployedCollab"},
     { title: "Transactions", icon: faMoneyBill , menu:"transactions", link : "/sapass/transactions"},
-    { title: "Utilisateurs", icon: faBusSimple, menu:"users" ,iconDown:faCaretDown, iconUp: faCaretUp , link : "/sapass/users", underMenu:[{title : "Ajouter", icon :faUserPlus , link : "/sapass/add_users"},{title :"Supprimer ", icon:faUserMinus , link : "/sapass/delete_users"}], state :"isDeployedUsers", setState :"setIsDeployedUsers"},
+    { title: "Utilisateurs", icon: faBusSimple, menu:"users" ,iconDown:faCaretDown, iconUp: faCaretUp , link : "/sapass/users", underMenu:[{title : "Ajouter", icon :faUserPlus , link : "/sapass/add_users"}], state :"isDeployedUsers", setState :"setIsDeployedUsers"},
   ];
 
   
