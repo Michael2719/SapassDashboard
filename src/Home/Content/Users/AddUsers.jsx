@@ -7,6 +7,7 @@ import './Users.css'
 import  DatePicker  from  "react-datepicker" ;
 import { addNewUserAuth } from '../../../FirebaseOperation/CreateNewUserOperation';
 import { firebaseResponseError } from '../../../FirebaseOperation/FirebaseErrorList';
+import BasicAlert from '../../../Alerts/BasicAlert';
 const containsNumbers=(str)=>{
     return /[0-9]/.test(str)
 }
@@ -32,6 +33,13 @@ const AddUsers = () => {
     const [loginUser, setLoginUser] = useState({email:"", psswd:"", confPsswd:""}) 
     const [psswdState, setPsswdState] = useState({uppercase: true,number:true, length:true })
     
+    const [basicAlertState, setBasicAlertState] = useState(false)
+    const [basicAlertInfo, setBasicAlertInfo]= useState({title:"", text:"", icon:"", confirmButtonText:""})
+
+    const handleAlertState = (bool) =>{
+        setBasicAlertState(bool)
+    }
+
     const handleInfoPersoChange=(e)=>{
         switch(e.target.name){
             case "nom" :
@@ -206,19 +214,37 @@ const AddUsers = () => {
     const emailVerficationCallBack =(bool)=>{
         if(bool){
             //Send user informations to firestore
+        }else{
+            if(basicAlertState){
+                setBasicAlertState(false)
+            }
+            setBasicAlertInfo({title:"Temps d'ettente dépassé!", text:"Adresse email non-vérifié", icon:"error", confirmButtonText:"Fermer"})
+             setBasicAlertState(true)   
         }
     }
 
     const addNewUserInformation =()=>{
         addNewUserAuth(loginUser.email, loginUser.psswd , emailVerficationCallBack).then((res)=>{
             console.log(res)
+            if(basicAlertState){
+                setBasicAlertState(false)
+            }
+            setBasicAlertInfo({title:"", text:`Email de vérification envoyée à l'adresse ${loginUser.email}`, icon:"info", confirmButtonText:"Fermer"})
+            setBasicAlertState(true)
         }).catch((err)=>{
-            console.log(err)
+            if(basicAlertState){
+                setBasicAlertState(false)
+            }   
+       
+            console.log(firebaseResponseError[err.code])
+            setBasicAlertInfo({title:"", text:firebaseResponseError[err.code], icon:"error", confirmButtonText:"Fermer"})
+             setBasicAlertState(true)
         })       
     }
 
     return (
         <div className='add-user-container'>
+            <BasicAlert title={basicAlertInfo.title} text={basicAlertInfo.text} icon ={basicAlertInfo.icon} confirmButtonText={basicAlertInfo.confirmButtonText} alertState={basicAlertState} setAlertState={handleAlertState} />
             <div className="add-user-toolbar  d-flex flex-column flex-md-row justify-content-md-between">
                 <h3>Ajout de nouvel utilisateur</h3>
                 <div className="add-user-toolbar-button d-flex flex-column flex-md-row gap-3 align-self-end ">

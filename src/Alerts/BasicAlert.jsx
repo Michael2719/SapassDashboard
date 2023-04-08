@@ -17,6 +17,7 @@ const BasicAlert = ({title, text, icon, confirmButtonText, alertState, setAlertS
         Swal.fire({
             title: title,
             text: text,
+            
             confirmButtonColor: '#013142',
             icon: icon,
             confirmButtonText: confirmButtonText,

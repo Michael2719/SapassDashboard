@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 
 import { initializeApp } from "../../node_modules/firebase/app";
-import {getAuth, createUserWithEmailAndPassword, signOut,sendEmailVerification} from "../../node_modules/firebase/auth";
+import {getAuth, createUserWithEmailAndPassword, signOut,sendEmailVerification, deleteUser} from "../../node_modules/firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBu7-gSxO6M176VFmEMj_jkg8RHuvcc2S8",
@@ -18,8 +18,22 @@ const secondaryApp = initializeApp(firebaseConfig, "Secondary");
 const auth1= getAuth(secondaryApp)
 
 const checkEmailIsVerified =(callBack)=>{
+  let compteur =0
   const onIdTokenChangedUnsubscribe=auth1.onIdTokenChanged((user)=>{
-  
+    console.log(compteur)
+    if(user){
+      if(compteur>=100 && !user.emailVerified ){
+      
+        deleteUser(auth1.currentUser).then(()=>{
+          callBack(false)
+          signOut(auth1)
+          return onIdTokenChangedUnsubscribe()
+        })
+        
+      }  
+    }
+    
+
     if (user && user.emailVerified) {
    
        //unsubscribe
@@ -27,9 +41,9 @@ const checkEmailIsVerified =(callBack)=>{
         signOut(auth1)
         return onIdTokenChangedUnsubscribe()
     }else{
-      if(auth1!=null){
+      if(auth1.currentUser!==null){
         setTimeout(()=>{
-          callBack(false)
+          compteur +=10;
           auth1.currentUser.reload();
           auth1.currentUser.getIdToken(true)
         },10000)
@@ -45,7 +59,7 @@ export const addNewUserAuth =(email, password, callBack)=>{
       .then(() => {
         sendEmailVerification(auth1.currentUser).then((res)=>{
           checkEmailIsVerified(callBack)
-          resolve(res)
+          resolve("Email sent")
           
         }).catch((err)=>{
           reject(err)
