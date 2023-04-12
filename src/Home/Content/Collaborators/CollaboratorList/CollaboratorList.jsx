@@ -46,13 +46,13 @@ const CollaboratorList = () => {
        
         switch (action){
             case 1 :
-                navigate(`/sapass/client/detail/${id}`)
+                navigate(`/sapass/clients/detail/${id}`)
                 break
             case 2 :
-                navigate(`/sapass/client/update/${id}`)
+                navigate(`/sapass/clients/update/${id}`)
                 break
             case 3 :
-                navigate(`/sapass/client/car/${id}`)
+                navigate(`/sapass/clients/car/${id}`)
                 break
                     
         }

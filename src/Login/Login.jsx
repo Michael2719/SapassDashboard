@@ -120,7 +120,7 @@ function Login() {
 
               </FormGroup>
               <Button className="mt-3  btn btn-submit" onClick={onSubmit} > 
-                <span className={""+hiddenTxt}>Connecter vous à votre compte</span>
+                <span className={""+hiddenTxt}>Se connecter à mon compte</span>
                 <span className={"spinner-grow spinner-grow-sm "+hiddenLoad} role="status" aria-hidden="true"></span>
                 <span className={"sr-only chargement "+hiddenLoad} >Chargement</span>
               </Button>

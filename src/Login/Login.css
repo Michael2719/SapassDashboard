@@ -12,6 +12,7 @@
 
   .container{
     max-width: 500px !important;
+    box-shadow:3px 3px 10px rgb(206, 205, 205);
   }
   input{
     margin-bottom: 30px;
@@ -28,7 +29,7 @@
   }
   
   .background{
-    background: linear-gradient(to right, #f0f3f5, #013142);
+    
     width: 100vw;
     height: 100vh;
   }
@@ -61,6 +62,9 @@
     padding: 40px!important;
     padding-bottom: 0 !important;
     border-radius: 10px 0 0 10px;
+  }
+  .left-background h2{
+    color: white;
   }
   
   .logo{
@@ -106,6 +110,7 @@
 
   .forgotPswd span{
     font-size: 1.2em;
+    color: blue;
   }
 
   .forgotPswd :hover{

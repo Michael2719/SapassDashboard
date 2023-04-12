@@ -53,6 +53,13 @@ const AddUsers = () => {
         setBasicAlertState(bool)
     }
 
+    const resetState =()=>{
+        setInfoUser({nom:"", prenoms:"", ddn:"", adress:"", tel:"", role:"admin_3", genre:"homme"})
+        setInputError({nom:false, prenoms:false, ddn:false, adress:false, tel:false, email:false, psswd:false, confPsswd:false})
+        setLoginUser({email:"", psswd:"", confPsswd:""})
+        setPsswdState({uppercase: true,number:true, length:true })
+    }
+
     const handleInfoPersoChange=(e)=>{
         switch(e.target.name){
             case "nom" :
@@ -106,14 +113,13 @@ const AddUsers = () => {
                 break;
         }
     }
+
     const handleDateChange=(date)=>{
         if(inputError.ddn)
         {
             setInputError(t=>({...t,ddn:false}))
         }
-        setInfoUser(t=>({...t, ddn:date}))
-       
-        
+        setInfoUser(t=>({...t, ddn:date}))        
     }
 
     const handleLoginChange =(e)=>{
@@ -175,8 +181,6 @@ const AddUsers = () => {
         }
     }
 
- 
-
     const handleValidate =()=>{
         let cmp =0
         if(infoUser.nom.length<4){
@@ -224,6 +228,7 @@ const AddUsers = () => {
             addNewUserInformation()            
         }
     }
+
     const emailVerficationCallBack =(bool, uid=null)=>{
         if(bool){
             //Send user informations to firestore
@@ -232,8 +237,10 @@ const AddUsers = () => {
             setDataUser(user).then(()=>{
                 setBasicAlertInfo({title:"", text:"Opération éffectuée!", icon:"success", confirmButtonText:"Fermer"})
                 setShowLoadingModal(false)
-                
-                setBasicAlertState(true)   
+                setBasicAlertState(true)
+                //Reset all form fields on data upload success
+                resetState();
+
             }).catch(()=>{
                 setBasicAlertInfo({title:"Oupss", text:"Une erreur s'est produite, veuillez réessayé!", icon:"error", confirmButtonText:"Fermer"})
                 setBasicAlertState(true)  
@@ -244,20 +251,16 @@ const AddUsers = () => {
                 setBasicAlertState(false)
             }
             setShowLoadingModal(false)
-            setBasicAlertInfo({title:"Temps d'ettente dépassé!", text:"Adresse email non-vérifié", icon:"error", confirmButtonText:"Fermer"})
+            setBasicAlertInfo({title:"Temps d'attente dépassé!", text:"Adresse email non vérifié", icon:"error", confirmButtonText:"Fermer"})
              setBasicAlertState(true)   
         }
     }
-
-
-
-    
 
     const addNewUserInformation =()=>{
         setLoadingText("Chargement...")
         setShowLoadingModal(true)
         addNewUserAuth(loginUser.email, loginUser.psswd , emailVerficationCallBack).then((res)=>{
-            console.log(res)
+            //Email de vérification envoyé avec succès!!
             if(basicAlertState){
                 setBasicAlertState(false)
             }
@@ -293,7 +296,7 @@ const AddUsers = () => {
             <div className="add-user-toolbar  d-flex flex-column flex-md-row justify-content-md-between">
                 <h3>Ajout de nouvel utilisateur</h3>
                 <div className="add-user-toolbar-button d-flex flex-column flex-md-row gap-3 align-self-end ">
-                    <button >Annuler</button>
+                    <button onClick={resetState}>Annuler</button>
                     <button onClick={handleValidate}>Valider</button>
                 </div>
             </div>
